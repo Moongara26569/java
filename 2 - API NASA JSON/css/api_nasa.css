@@ -1,0 +1,23 @@
+#container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div{
+    margin: 4em;
+    
+}
+img {
+    height: 400px;
+    width: 550px;
+    border-radius: 3%;
+    border-style: ridge;
+    
+  }
+  
+
+h1{
+    margin-top: 5%;
+    text-align: center;
+}

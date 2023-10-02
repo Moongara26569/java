@@ -1,6 +1,6 @@
 const apiKey = '4oC05LVGb58hLd5txzXYAWhBhXwad13hMfYDl33u';
 const sol = 1000; // El número de sol que deseas consultar
-
+var cont=0;
 // URL del API de la NASA
 const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=${apiKey}`;
 //const apiUrl = 'js\data.json';
@@ -16,8 +16,22 @@ fetch(apiUrl)
   .then((data) => {
     // Los datos de las fotos se encuentran en el objeto 'data'
     console.log(data);
-    //document.getElementById("imagen").src = data.photos[0].img
-    data.photos[0].img_src;
+    data.photos.forEach(element => {
+      var newDiv = document.createElement('div');
+      var newImg = document.createElement('img');
+      //var newBr = document.createElement('br');
+      newDiv.className = 'divImagenes';
+      newImg.className = 'imagenes';
+      document.getElementById('container').appendChild(newDiv);
+      newImg.src = data.photos[cont].img_src;
+      newDiv.appendChild(newImg);
+      //newDiv.appendChild(newBr);
+      cont++;
+
+    });
+    //data[0].img_src
+    //document.getElementById("imagen").src = data.photos[0].img_src;
+    data.photos[0].img_src
     // Aquí puedes procesar los datos o mostrar las imágenes en tu aplicación
   })
   .catch((error) => {
